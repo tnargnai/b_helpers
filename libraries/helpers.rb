@@ -20,6 +20,10 @@ module SearchNodes
     end
   end
 
+  def get_ips_by_role(role, environment=node.chef_environment)
+    get_nodes_ip_list(get_nodes_by_role(role, environment))
+  end
+
 end
 
 Chef::Recipe.send(:include, SearchNodes)
